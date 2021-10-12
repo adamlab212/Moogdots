@@ -4,6 +4,7 @@
 #include "OpenGL.hpp"
 #include "Shader.hpp"
 #include <string>
+#include <filesystem>
 
 class ShaderManager
 {
