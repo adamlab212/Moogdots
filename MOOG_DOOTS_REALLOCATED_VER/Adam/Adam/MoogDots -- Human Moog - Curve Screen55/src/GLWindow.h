@@ -339,6 +339,36 @@ public:
 			m_world.starField.drawFlashingFixationPoint
 			);
 	}
+	void ThreadLoop4()
+	{
+		//no need fore this quaternion
+		ovrQuatf quaternion;
+		ThreadLoop(0,
+			NULL,
+			0 * 3,
+			lastEyePos.x,
+			lastEyePos.y,
+			lastEyePos.z,
+			lastTargetPos.x,
+			lastTargetPos.y,
+			lastTargetPos.z,
+			lastUpPos.x,
+			lastUpPos.y,
+			lastUpPos.z,
+			lastCenterPoint.x,
+			lastCenterPoint.y,
+			lastCenterPoint.z,
+			lastFixationPoint.x,
+			lastFixationPoint.y,
+			lastFixationPoint.z,
+			lastZDistanceFromScreen,
+			lastNearZ,
+			lastFarZ,
+			quaternion,
+			false,
+			m_drawFlashSqureInCurrentFrame
+		);
+	}
 
 	//clearing the world of the starfield to be nothing (if between trials we want a cleared world).
 	void ClearStarFieldData()

@@ -3321,7 +3321,20 @@ void MoogDotsCom::RenderFrameInGlPanel()
 	glPanel->SetLateral(m_glData.X.at(m_glData.index));
 	glPanel->SetSurge(m_glData.Y.at(m_glData.index));
 	glPanel->SetHeave(m_glData.Z.at(m_glData.index));
+
+	// matan's flashing test
+	/*vector<bool> matanArray;
+	for (int i = 0; i < 60; i++) {
+		if (i % 10 < 5) {
+			matanArray.push_back(true);
+		}
+		else {
+			matanArray.push_back(false);
+		}
+	}*/
+	//glPanel->SetDrawFlashSquareAtCurrentFrame(matanArray.at((m_glData.index)));
 	glPanel->SetDrawFlashSquareAtCurrentFrame(m_drawFlashingFrameSquareData.at((m_glData.index)));
+
 
 	// Set the rotation angle.
 	glPanel->SetRotationAngle(m_glRotData.at(m_glData.index));
@@ -3361,7 +3374,9 @@ void MoogDotsCom::RenderFrameInGlPanel()
 	double time = (double)((clock() - m_roundStartTime) * 1000) / (double)CLOCKS_PER_SEC;
 	WRITE_LOG_PARAMS2(m_logger->m_logger, "Starting rendering for the new frame. ", m_glData.index, time);
 #pragma endregion LOG-START_RENDER
+
 	glPanel->Render(m_eyeOrientationQuaternion);
+
 #pragma region LOG-END_RENDER
 	time = (double)((clock() - m_roundStartTime) * 1000) / (double)CLOCKS_PER_SEC;
 	WRITE_LOG_PARAMS2(m_logger->m_logger, "Ending rendering for the new frame. ", m_glData.index, time);
