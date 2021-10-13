@@ -527,7 +527,7 @@ void CParameterList::LoadHash()
 
 	//Send data to the LPT controller.
 	x.description = "Send data to the LPT controller.";
-	x.data.at(0) = 1.0;
+	x.data.at(0) = 0.0;
 	m_pHash.insert(ParameterKeyPair("LPT_DATA_SEND", x));
 
 	// Floor draw mode.
