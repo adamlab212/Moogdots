@@ -1064,7 +1064,7 @@ void MoogDotsCom::Control()
 				double time = (double)((clock() - m_roundStartTime) * 1000) / (double)CLOCKS_PER_SEC;
 				WRITE_LOG_PARAM(m_logger->m_logger, "Start ThreadLoop3(2) for fixation point rendering [ms]", time);
 
-				m_glWindow->GetGLPanel()->ThreadLoop3();
+				m_glWindow->GetGLPanel()->ThreadLoopFixationPoint();
 
 				time = (double)((clock() - m_roundStartTime) * 1000) / (double)CLOCKS_PER_SEC;
 				WRITE_LOG_PARAM(m_logger->m_logger, "Stop ThreadLoop3(2) for fixation point rendering [ms]", time);
@@ -1091,7 +1091,7 @@ void MoogDotsCom::Control()
 						double time = (double)((clock() - m_roundStartTime) * 1000) / (double)CLOCKS_PER_SEC;
 						WRITE_LOG_PARAM(m_logger->m_logger, "Start ThreadLoop3(1) for fixation point rendering [ms]", time);
 
-						glPanel->ThreadLoop2();
+						glPanel->ThreadLoopStartField();
 
 						time = (double)((clock() - m_roundStartTime) * 1000) / (double)CLOCKS_PER_SEC;
 						WRITE_LOG_PARAM(m_logger->m_logger, "Stop ThreadLoop3(1) for fixation point rendering [ms]", time);
@@ -1108,7 +1108,7 @@ void MoogDotsCom::Control()
 						WRITE_LOG_PARAM(m_logger->m_logger, "Start ThreadLoop3 for fixation point rendering [ms]", time);
 
 						//thread loop3 is for rendering only the fixation point.
-						glPanel->ThreadLoop3();
+						glPanel->ThreadLoopFixationPoint();
 
 						time = (double)((clock() - m_roundStartTime) * 1000) / (double)CLOCKS_PER_SEC;
 						WRITE_LOG_PARAM(m_logger->m_logger, "Stop ThreadLoop3 for fixation point rendering [ms]", time);
@@ -1120,7 +1120,7 @@ void MoogDotsCom::Control()
 						double time = (double)((clock() - m_roundStartTime) * 1000) / (double)CLOCKS_PER_SEC;
 						WRITE_LOG_PARAM(m_logger->m_logger, "Start ThreadLoop2 for fixation point rendering and freezing world of stars [ms]", time);
 
-						glPanel->ThreadLoop2();
+						glPanel->ThreadLoopStartField();
 
 						time = (double)((clock() - m_roundStartTime) * 1000) / (double)CLOCKS_PER_SEC;
 						WRITE_LOG_PARAM(m_logger->m_logger, "End ThreadLoop2 for fixation point rendering and freezing world of stars [ms]", time);
@@ -2005,7 +2005,7 @@ void MoogDotsCom::SendHeadMotionTrackToMatlab(unsigned short* orientationsBytesA
 				//it's time to render the empty world. because if not, the hourglass would appear due to the do while loop.
 				if (m2 > 50000)
 				{
-					m_glWindow->GetGLPanel()->ThreadLoop3();
+					m_glWindow->GetGLPanel()->ThreadLoopFixationPoint();
 					m2 = 0;
 				}
 			} while (readBytes);
@@ -2034,7 +2034,7 @@ void MoogDotsCom::SendHeadMotionTrackToMatlab(unsigned short* orientationsBytesA
 				//it's time to render the empty world. because if not, the hourglass would appear due to the do while loop.
 				if (m2 > 50000)
 				{
-					m_glWindow->GetGLPanel()->ThreadLoop3();
+					m_glWindow->GetGLPanel()->ThreadLoopFixationPoint();
 					m2 = 0;
 				}
 			} while (!readBytes);

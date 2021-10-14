@@ -501,7 +501,7 @@ GLvoid GLPanel::DrawEyeImageObject(const int whichEye, ovrQuatf& quaternion , co
 		else if (!m_world.starField.drawBackground == 1.0 && renderNow) 
 		{
 			if (m_world.starField.use_lifetime == 1.0 && !drawStayFP && lastRecordAvailable)
-				ThreadLoop4();
+				ThreadLoopFlashingSquare();
 		}
 
 		if (m_world.sphereFieldPara.at(0) && renderNow) 

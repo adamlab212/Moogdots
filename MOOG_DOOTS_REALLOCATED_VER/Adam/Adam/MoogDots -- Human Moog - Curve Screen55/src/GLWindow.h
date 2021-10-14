@@ -278,7 +278,7 @@ public:
 	double enableGrid;
 
 	//ThreadLoop for keep rendering the last frame of the last round between the rounds - for no black screen at the pauses between the rounds.
-	void ThreadLoop2()
+	void ThreadLoopStartField()
 	{
 		//no need fore this quaternion
 		ovrQuatf quaternion;
@@ -309,7 +309,7 @@ public:
 	}
 
 	//ThreadLoop for keep rendering the fixation point (can move by the head) between the rounds - for no black screen at the pauses between the rounds.
-	void ThreadLoop3()
+	void ThreadLoopFixationPoint()
 	{
 		//no need fore this quaternion
 		ovrQuatf quaternion;
@@ -339,7 +339,8 @@ public:
 			m_world.starField.drawFlashingFixationPoint
 			);
 	}
-	void ThreadLoop4()
+	// matan - Thread Loop for displaying flashing square without background
+	void ThreadLoopFlashingSquare()
 	{
 		//no need fore this quaternion
 		ovrQuatf quaternion;
